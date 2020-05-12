@@ -7,7 +7,7 @@
     "start": "nodemon server.js",
     "prestart": "parcel build ./client/index.html",
     "parcel:dev": "parcel ./client/index.html",
-    "build": "node server.js && parcel build ./client/index.html"
+    "build": "parcel build ./client/index.html && node server.js"
   },
   "keywords": [],
   "author": "",
