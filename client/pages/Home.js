@@ -6,7 +6,7 @@ const Home = () => {
 
     const goHome = () => {
         console.log('asdfasdfasdf')
-        history.push('/firstPath')
+        history.push('/signup')
         console.log('adfasdf')
     }
 
