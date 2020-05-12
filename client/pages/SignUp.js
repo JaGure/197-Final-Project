@@ -23,9 +23,7 @@ const SignUp = () => {
             <Container className='container-fluid'>
                 <div className='row align-items-center'>
                     <div className='col-md-2 col-lg-4'></div>
-                    <div className='col-md-8 col-lg-4'>
-                        <SignUpBox />
-                    </div>
+                    <SignUpBox classString='col-md-8 col-lg-4' />
                     <div className='col-md-2 col-lg-4'></div>
                 </div>
             </Container>
