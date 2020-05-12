@@ -1,18 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-const SignUpForm = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [displayWarning, setDisplayWarning] = useState(false)
+import Form from './Form'
 
+const SignUpForm = () => {
     const history = useHistory()
 
     // send a post request to the server to register the user
-    // if the username is taken, have the user try again, otherwise redirect to login page
-    const signUp = async (e) => {
-        e.preventDefault()
-
+    // if the username is not taken, redirect to login page
+    // returns a boolean representing if the sign up succeeded
+    const signUp = async (username, password) => {
         // post request to server backend
         const response = await fetch('/account/signup', {
             method: 'POST',
@@ -24,33 +21,15 @@ const SignUpForm = () => {
 
         // if user was alreay in db
         if (resBody.containedUser) {
-            setDisplayWarning(true)
+            return false
         } else {
             history.push('/login') // redirects to the log in page
+            return true
         }
     }
 
     return (
-        <form onSubmit={e => signUp(e)}>
-            {displayWarning ?
-                <div className="alert alert-danger alert-dismissible fade show" role="alert">
-                    Username already taken! Please try a new one.
-                <button type="button" className="close" data-dismiss="alert" onClick={e => setDisplayWarning(false)}>
-                        <span>&times;</span>
-                    </button>
-                </div> 
-                : null
-            }
-            <div className='form-group'>
-                <label>Username</label>
-                <input type='text' className='form-control' value={username} onChange={e => setUsername(e.target.value)} />
-            </div>
-            <div className='form-group'>
-                <label>Password</label>
-                <input type='password' className='form-control' value={password} onChange={e => setPassword(e.target.value)} />
-            </div>
-            <button type="submit" className="btn btn-primary">Sign Up!</button>
-        </form>
+        <Form onSubmitFunc={signUp} warningMessage='Username already taken! Please try a new one.' buttonText='Sign Up!' />
     )
 }
 
