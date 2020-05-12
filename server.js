@@ -8,6 +8,7 @@ const User = require('./models/user').user
 const Group = require('./models/group')
 
 const accountRouter = require('./routes/account')
+const userRouter = require('./routes/user')
 
 // instantiating express app 
 const app = express()
@@ -35,6 +36,7 @@ app.use(
 
 // Routers
 app.use('/account', accountRouter)
+app.user('/user', userRouter)
 
 // Catch all for all other get requests
 app.get('*', function (_, res) {

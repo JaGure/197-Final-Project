@@ -15,7 +15,7 @@ const Home = () => {
     useEffect(() => {
         async function checkIfUserLoggedIn() {
             // get request to server backend
-            const response = await fetch('/account/', {
+            const response = await fetch('/user/', {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             })
