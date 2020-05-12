@@ -36,7 +36,7 @@ app.use(
 
 // Routers
 app.use('/account', accountRouter)
-app.user('/user', userRouter)
+app.use('/user', userRouter)
 
 // Catch all for all other get requests
 app.get('*', function (_, res) {

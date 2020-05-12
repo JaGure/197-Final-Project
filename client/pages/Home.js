@@ -10,9 +10,22 @@ const Home = () => {
     const history = useHistory()
 
     // called on first render
-    // checks to see if a user is currently logged in, if so, sets the current user
+    // checks to see if a user is currently logged in, if so, sets the current user and gets their groups
     // if no user is logged in, redirects to the sign up page
     useEffect(() => {
+        // assumes the user is logged in
+        async function getUserGroups() {
+            // get request to server backend
+            const response = await fetch('/user/groups', {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+            })
+
+            const resBody = await response.json()
+
+            setGroups(resBody.groups)
+        }
+
         async function checkIfUserLoggedIn() {
             // get request to server backend
             const response = await fetch('/user/', {
@@ -26,6 +39,7 @@ const Home = () => {
             if (resBody.currentUser != null) {
                 setCurrentUser(resBody.currentUser)
                 setUserIsLoggedIn(true)
+                getUserGroups()
             } else {
                 history.push('/signup') // redirects to the sign up page
             }
@@ -36,8 +50,8 @@ const Home = () => {
     return (
         <>
             {userIsLoggedIn ? // only shows the home page if the user is logged in so that
-                              // a user getting redirected doesn't accidentally see the home page
-                              // if redirection takes a sec
+                // a user getting redirected doesn't accidentally see the home page
+                // if redirection takes a sec
                 <>
                     <Header />
                     <div>
