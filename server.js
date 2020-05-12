@@ -14,7 +14,7 @@ const app = express()
 mongoose.connect(
     process.env.MONGODB_URI || 'mongodb://localhost:27017/dnd',
     { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+)
 
 app.use(express.static(path.join(__dirname, './dist')))
 
@@ -28,8 +28,20 @@ app.use(
     })
 )
 
+// Catch all for all other get requests
+app.get('*', function (_, res) {
+    return res.status(404).send()
+})
+
+// Middleware for catching any errors
+app.use(function (err, _, res) {
+    if (err) {
+        return res.send('ERROR :  ' + err.message)
+    }
+})
+
 // starting server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`App listening on port ${port}`)
+    console.log(`App listening on port ${port}`)
 });
