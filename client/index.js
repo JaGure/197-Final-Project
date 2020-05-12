@@ -1,3 +1,5 @@
+require("babel-polyfill") // needed for use of async/await
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 

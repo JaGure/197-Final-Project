@@ -20,7 +20,10 @@ mongoose.connect(
 
 app.use(express.static(path.join(__dirname, './dist')))
 
-app.use(bodyParser.urlencoded({ extended: false }))
+// allows requests from react to work
+// need extended to be true and need the JSON body parser
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 app.use(
     cookieSession({
