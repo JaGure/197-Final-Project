@@ -7,6 +7,8 @@ const mongoose = require('mongoose')
 const User = require('./models/user').user
 const Group = require('./models/group')
 
+const accountRouter = require('./routes/account')
+
 // instantiating express app 
 const app = express()
 
@@ -27,6 +29,9 @@ app.use(
         maxAge: 24 * 60 * 60 * 1000, // 24 hours
     })
 )
+
+// Routers
+app.use('/account', accountRouter)
 
 // Catch all for all other get requests
 app.get('*', function (_, res) {
