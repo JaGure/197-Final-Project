@@ -10,7 +10,7 @@ const groupSchema = new mongoose.Schema({
     characters: { 
         type: Map, 
         of:  characterSchema}, // map of users to characters
-    DM: { type: User },    
+    DM: { type: userSchema },    
 })
 
 module.exports = mongoose.model('Group', groupSchema)
