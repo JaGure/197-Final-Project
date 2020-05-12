@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js",
+    "prestart": "parcel build ./client/index.html",
+    "parcel:dev": "parcel ./client/index.html",
+    "build": "node server.js && parcel build ./client/index.html"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +23,12 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/*",
+      "dist/*",
+      ".cache/*"
+    ]
   }
 }

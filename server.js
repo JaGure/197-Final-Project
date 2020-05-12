@@ -16,7 +16,7 @@ mongoose.connect(
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
 
-app.use(express.static(path.join(__dirname, '../dist')))
+app.use(express.static(path.join(__dirname, './dist')))
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -28,8 +28,8 @@ app.use(
     })
 )
 
-// start app
-app.listen(process.env.PORT || 3000, function() {
-    console.log('App listening on port ' + (process.env.PORT || 3000))
-  })
-  
+// starting server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`)
+});
