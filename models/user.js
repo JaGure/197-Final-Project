@@ -6,4 +6,7 @@ const userSchema = new mongoose.Schema({
     groups: { type: [String] },
 })
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = {
+    user: mongoose.model('User', userSchema),
+    userSchema: userSchema
+}

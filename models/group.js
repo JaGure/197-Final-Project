@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 
-const User = require('./user')
-const Character = require('./character')
+const userSchema = require('./user').userSchema
+const characterSchema = require('./character').characterSchema
 
 const groupSchema = new mongoose.Schema({
     groupName: { type: String },
     groupID: { type: String },
-    users: { type: [User] }, 
+    users: { type: [userSchema] }, 
     characters: { 
         type: Map, 
-        of:  Character}, // map of users to characters
+        of:  characterSchema}, // map of users to characters
     DM: { type: User },    
 })
 

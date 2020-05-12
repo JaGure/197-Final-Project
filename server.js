@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cookieSession = require('cookie-session')
 const mongoose = require('mongoose')
 
-const User = require('./models/user')
+const User = require('./models/user').user
 const Group = require('./models/group')
 
 // instantiating express app 
