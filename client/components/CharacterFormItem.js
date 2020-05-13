@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const CharacterFormItem = props => {
     const { labelText, setOutputString, reqString } = props
     const [inputText, setInputText] = useState('')
-    const currentAttribute = reqString != null ? reqString.slice(27, reqString.length - 1) : 'name'
+    const currentAttribute = reqString != null ? reqString.slice(28, reqString.length - 1) : 'name'
     const [displayWarning, setDisplayWarning] = useState(false)
 
     const onInputChange = e => {
