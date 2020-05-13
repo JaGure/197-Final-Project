@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 import Header from '../components/Header'
 import CreateGroupMenu from '../components/CreateGroupMenu'
+import GroupCard from '../components/GroupCard'
 
 const BodyWrapper = s.div`
     margin: 50px auto 0;
@@ -62,9 +63,9 @@ const Home = () => {
                     <Header />
                     <BodyWrapper className='container-fluid'>
                         <div className='row'>
-                            <div className='col'>
-                                {currentUser}
-                            </div>
+                            {groups.map(function (groupName, index) {
+                                return <GroupCard groupName={groupName} index={index} />
+                            })}
                         </div>
                     </BodyWrapper>
                     <CreateGroupMenu />
