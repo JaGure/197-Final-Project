@@ -20,9 +20,9 @@ const app = express()
 // var db = mongoose.connection;
 
 // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-const uri = 'mongodb://username:password@ds015730.mlab.com:15730/heroku_730ww9j3'
+const uri = process.env.MONGODB_URI
 mongoose
-    .connect(uri || 'mongodb://localhost:27017/dnd', { useNewUrlParser: true, useCreateIndex: true})
+    .connect(uri || 'mongodb://localhost:27017/dnd', { useNewUrlParser: true, useUnifiedTopology: true})
     .catch(err => console.log(err))
 
 app.use(express.static(path.join(__dirname, './dist')))
