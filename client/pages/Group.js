@@ -16,12 +16,13 @@ const Group = () => {
     // gets the group index in the users array from the url (for db lookup)
     const location = useLocation()
     const index = location.pathname.slice(7)
-    
+
     const [groupName, setGroupName] = useState('')
     const [users, setUsers] = useState([])
     const [characters, setCharacters] = useState([])
     const [DM, setDM] = useState('')
     const [characterCreated, setCharacterCreated] = useState(false)
+    const [groupID, setGroupID] = useState('')
 
     // called on first render; gets the current user's groups[index] (current user tracked by the backend)
     useEffect(() => {
@@ -41,15 +42,16 @@ const Group = () => {
             setUsers(group.users)
             setCharacters(group.characters)
             setDM(group.DM)
+            setGroupID(resBody.id)
 
             // if a character has already been created before in this group
-            if (characters.length > 0) {
+            if (typeof group.characters[0]._id !== 'undefined') {
                 setCharacterCreated(true)
             }
         }
 
         getUserGroups()
-    }, [])
+    }, [characterCreated])
 
     return (
         <Container className='container-fluid'>
@@ -63,7 +65,7 @@ const Group = () => {
                     {!characterCreated ?
                         <>
                             <h3>Create New Character</h3>
-                            <CreateCharacterForm setCharacterCreated={setCharacterCreated} />
+                            <CreateCharacterForm setCharacterCreated={setCharacterCreated} groupID={groupID} />
                         </>
                         :
                         <>

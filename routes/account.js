@@ -6,8 +6,8 @@ const User = require('../models/user').user
 const hashPassword = require('../helpers/hashPassword').hashPassword
 
 router.post('/signup', function (req, res, next) {
-    var username = req.body.username
-    var password = hashPassword(req.body.password)
+    const username = req.body.username
+    const password = hashPassword(req.body.password)
 
     // check if the user is in the database, add them if so
     // the response sent will be used by the frontend to tell the user if a username is already taken
@@ -17,7 +17,7 @@ router.post('/signup', function (req, res, next) {
         } else if (result.length !== 0) {
             res.send({ containedUser: true })
         } else {
-            var u = new User({
+            const u = new User({
                 username: username,
                 password: password,
                 groups: []

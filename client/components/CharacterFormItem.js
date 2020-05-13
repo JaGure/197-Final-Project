@@ -45,8 +45,7 @@ const CharacterFormItem = props => {
                     output += ' - ' + resBody.desc[0]
                     break;
             }
-
-            console.log(output)
+            
             setOutputString(output)
             setDisplayWarning(false)
         } else {

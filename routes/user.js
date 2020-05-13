@@ -40,7 +40,7 @@ router.get('/group/*', function (req, res, next) {
                 if (err) {
                     next(err)
                 } else {
-                    res.send({ group: group })
+                    res.send({ group: group, id: id })
                 }
             })
         }
@@ -65,7 +65,7 @@ router.post('/create-group', function (req, res, next) {
     const username = req.session.username
     const groupName = req.body.groupName
 
-    var g = new Group({
+    const g = new Group({
         groupName: groupName,
         users: [username],
         characters: [],

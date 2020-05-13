@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import CharacterFormItem from './CharacterFormItem'
 
 const CreateCharacterForm = props => {
-    const { setCharacterCreated } = props
+    const { setCharacterCreated, groupID } = props
     const [characterNameString, setCharacterNameString] = useState('')
     const [classString, setClassString] = useState('')
     const [raceString, setRaceString] = useState('')
@@ -11,15 +11,29 @@ const CreateCharacterForm = props => {
 
     const baseRequestString = 'http://www.dnd5eapi.co/api/'
 
-    const createCharacter = e => {
+    const createCharacter = async (e) => {
         e.preventDefault()
 
-        console.log(characterNameString)
-        console.log(classString)
-        console.log(raceString)
-        console.log(skillString)
+        // if all form fields have been filled, create a new character
+        if (characterNameString !== '' && classString !== '' && raceString !== '' && skillString !== '') {
+            const character = {
+                name: characterNameString,
+                class: classString,
+                race: raceString,
+                skill: skillString
+            }
 
-        setCharacterCreated(true)
+            // post request to backend to create character
+            const response = await fetch('/group/add-character', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ groupID: groupID, character: character })
+            })
+            
+            setCharacterCreated(true)
+        }
+
+
     }
 
     return (
