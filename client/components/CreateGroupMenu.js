@@ -13,13 +13,16 @@ const Wrapper = s.div`
 `
 
 // toggles between the form to create a group and the create group button
-const CreateGroupMenu = props => {
-    const { initialShowButton } = props
-    const [showButton, setShowButton] = useState(initialShowButton)
+const CreateGroupMenu = () => {
+    const [showButton, setShowButton] = useState(true)
+
+    const toggleShowButton = () => {
+        setShowButton(!showButton)
+    }
 
     return (
         <Wrapper>
-            { showButton ? <NewGroupButton /> : <NewGroupForm /> }
+            { showButton ? <NewGroupButton toggleShowButton={toggleShowButton} /> : <NewGroupForm toggleShowButton={toggleShowButton} /> }
         </Wrapper>
     )
 }

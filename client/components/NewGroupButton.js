@@ -1,8 +1,10 @@
 import React from 'react'
 
-const NewGroupButton = () => {
+const NewGroupButton = props => {
+    const { toggleShowButton } = props
+
     return (
-        <button type='button' className='btn btn-primary rounded-pill' onClick={e => history.push('/group/create')}>Create New Group</button>
+        <button type='button' className='btn btn-primary rounded-pill' onClick={e => toggleShowButton()}>Create New Group</button>
     )
 }
 
