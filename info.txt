@@ -1,0 +1,2 @@
+GitHub URL: https://github.com/JaGure/197-Final-Project
+heroku URL: jakegure-cis197-final.herokuapp.com
