@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Form = props => {
+const CredentialForm = props => {
     const { onSubmitFunc, warningMessage, buttonText } = props
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -38,4 +38,4 @@ const Form = props => {
     )
 }
 
-export default Form
+export default CredentialForm

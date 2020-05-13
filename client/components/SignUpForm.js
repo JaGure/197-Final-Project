@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-import Form from './Form'
+import CredentialForm from './CredentialForm'
 
 const SignUpForm = () => {
     const history = useHistory()
@@ -29,7 +29,7 @@ const SignUpForm = () => {
     }
 
     return (
-        <Form onSubmitFunc={signUp} warningMessage='Username already taken! Please try a new one.' buttonText='Sign Up!' />
+        <CredentialForm onSubmitFunc={signUp} warningMessage='Username already taken! Please try a new one.' buttonText='Sign Up!' />
     )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-import Form from './Form'
+import CredentialForm from './CredentialForm'
 
 const LogInForm = () => {
     const history = useHistory()
@@ -28,7 +28,7 @@ const LogInForm = () => {
     }
 
     return (
-        <Form onSubmitFunc={logIn} warningMessage='Login failed. Please try again.' buttonText='Log In'/>
+        <CredentialForm onSubmitFunc={logIn} warningMessage='Login failed. Please try again.' buttonText='Log In'/>
     )
 }
 
