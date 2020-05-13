@@ -22,9 +22,11 @@ const Group = () => {
     const [characters, setCharacters] = useState([])
     const [DM, setDM] = useState('')
     const [characterCreated, setCharacterCreated] = useState(false)
+    const [showCharacterForm, setShowCharacterForm] = useState(false)
     const [groupID, setGroupID] = useState('')
 
-    // called on first render; gets the current user's groups[index] (current user tracked by the backend)
+    // called on first render & when characterCreated is updated
+    // gets the current user's groups[index] (current user tracked by the backend)
     useEffect(() => {
         // assumes the user is logged in
         async function getUserGroups() {
@@ -44,9 +46,11 @@ const Group = () => {
             setDM(group.DM)
             setGroupID(resBody.id)
 
+            console.log(group.characters)
+
             // if a character has already been created before in this group
             if (typeof group.characters[0] !== 'undefined' && typeof group.characters[0]._id !== 'undefined') {
-                setCharacterCreated(true)
+                setShowCharacterForm(true)
             }
         }
 
@@ -62,7 +66,7 @@ const Group = () => {
             </div>
             <div className='row'>
                 <div className='col-md-5'>
-                    {!characterCreated ?
+                    {!showCharacterForm ?
                         <>
                             <h3>Create New Character</h3>
                             <CreateCharacterForm setCharacterCreated={setCharacterCreated} groupID={groupID} />
