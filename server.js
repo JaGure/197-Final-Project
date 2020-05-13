@@ -14,15 +14,15 @@ const userRouter = require('./routes/user')
 const app = express()
 
 // instantiate a mongoose connect call
-let dbURI = 'mongodb://heroku_730ww9j3:7u0ca0igjj5i5gtnh682jcpum8@ds015730.mlab.com:15730/heroku_730ww9j3'
-mongoose.connect(dbURI, {});
+// let dbURI = 'mongodb://heroku_730ww9j3:7u0ca0igjj5i5gtnh682jcpum8@ds015730.mlab.com:15730/heroku_730ww9j3'
+// mongoose.connect(dbURI, {});
 
-var db = mongoose.connection;
+// var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-// mongoose
-//     .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/dnd', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
-//     .catch(err => console.log(err))
+// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose
+    .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/dnd', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+    .catch(err => console.log(err))
 
 app.use(express.static(path.join(__dirname, './dist')))
 
