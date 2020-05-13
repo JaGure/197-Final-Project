@@ -44,14 +44,14 @@ router.post('/create-group', function (req, res, next) {
 
     var g = new Group({
         groupName: groupName,
-        users = [username],
+        users: [username],
         characters: new Map(),
         DM: username,
     })
 
     // add new group to db
     g.save(function (err) {
-        if(err) {
+        if (err) {
             next(err)
         }
     })
@@ -62,6 +62,11 @@ router.post('/create-group', function (req, res, next) {
             next(err)
         } else {
             user.groups.unshift(g._id)
+            user.save(function (err) {
+                if (err) {
+                    next(err)
+                }
+            })
         }
     })
 

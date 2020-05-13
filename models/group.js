@@ -5,7 +5,7 @@ const characterSchema = require('./character').characterSchema
 
 const groupSchema = new mongoose.Schema({
     groupName: { type: String },
-    users: { type: [userSchema] }, 
+    users: { type: [String] }, 
     characters: { 
         type: Map, 
         of:  characterSchema}, // map of users to characters
