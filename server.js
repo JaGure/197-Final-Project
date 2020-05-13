@@ -20,6 +20,7 @@ const app = express()
 // var db = mongoose.connection;
 
 // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+console.log(process.env.MONGODB_URI)
 mongoose
     .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/dnd', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
     .catch(err => console.log(err))
