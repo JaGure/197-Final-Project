@@ -40,7 +40,7 @@ app.use('/user', userRouter)
 
 // Catch all for all other get requests
 app.get('*', function (_, res) {
-    return res.status(404).send()
+    return res.send()
 })
 
 // Middleware for catching any errors

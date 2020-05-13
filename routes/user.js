@@ -20,7 +20,7 @@ router.use('/', function (req, res, next) {
     const username = req.session.username
 
     if (username == null) {
-        res.status(401).send('User needs to log in to achieve this functionality')
+        res.send('User needs to log in to achieve this functionality')
     } else {
         next()
     }
@@ -94,7 +94,7 @@ router.post('/create-group', function (req, res, next) {
         }
     })
 
-    res.status(200).send('Group successfully added')
+    res.send('Group successfully added')
 })
 
 module.exports = router

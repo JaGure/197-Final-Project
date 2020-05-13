@@ -57,7 +57,7 @@ router.post('/login', function (req, res, next) {
 
 router.post('/logout', function (req, res, next) {
     req.session = null
-    res.status(200).send('Logout Successful')
+    res.send('Logout Successful')
 })
 
 module.exports = router
