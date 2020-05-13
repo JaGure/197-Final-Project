@@ -5,7 +5,11 @@ const Group = () => {
     // gets the group index in the users array from the url (for db lookup)
     const location = useLocation()
     const index = location.pathname.slice(7)
-    const [group, setGroup] = useState(null)
+    const [groupName, setGroupName] = useState('')
+    const [users, setUsers] = useState([])
+    const [characters, setCharacters] = useState([])
+    const [DM, setDM] = useState('')
+    const [characterCreated, setCharacterCreated] = useState(false)
 
     // called on first render; gets the current user's groups[index] (current user tracked by the backend)
     useEffect(() => {
@@ -19,14 +23,30 @@ const Group = () => {
 
             const resBody = await response.json()
 
-            setGroup(resBody.group)
+            const group = resBody.group
+
+            setGroupName(group.groupName)
+            setUsers(group.users)
+            setCharacters(group.characters)
+            setDM(group.DM)
         }
 
         getUserGroups()
     }, [])
 
     return (
-        <div>Da grupes payje</div>
+        <>
+            <h1>{groupName}</h1>
+            {characterCreated ?
+                <form>
+                </form> :
+                <div>
+                    <p>Character Name: {characters[0].name}</p>
+                    <p>Character Class: {characters[0].class}</p>
+                    <p>Character Race: {characters[0].race}</p>
+                    <p>Character Skill: {characters[0].skill}</p>
+                </div>}
+        </>
     )
 }
 

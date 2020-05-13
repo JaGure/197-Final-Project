@@ -68,7 +68,7 @@ router.post('/create-group', function (req, res, next) {
     var g = new Group({
         groupName: groupName,
         users: [username],
-        characters: new Map(),
+        characters: [],
         DM: username,
     })
 
