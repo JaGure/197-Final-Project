@@ -9,7 +9,7 @@ const CreateCharacterForm = props => {
     const [raceString, setRaceString] = useState('')
     const [skillString, setSkillString] = useState('')
 
-    const baseRequestString = 'http://www.dnd5eapi.co/api/'
+    const baseRequestString = 'https://www.dnd5eapi.co/api/'
 
     const createCharacter = async (e) => {
         e.preventDefault()
