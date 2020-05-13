@@ -46,8 +46,6 @@ const Group = () => {
             setDM(group.DM)
             setGroupID(resBody.id)
 
-            console.log(group.characters)
-
             // if a character has already been created before in this group
             if (typeof group.characters[0] !== 'undefined' && typeof group.characters[0]._id !== 'undefined') {
                 setShowCharacterForm(true)
