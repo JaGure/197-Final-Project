@@ -61,7 +61,7 @@ router.post('/create-group', function (req, res, next) {
         if (err) {
             next(err)
         } else {
-            user.groups.unshift(g._id)
+            user.groups.unshift(g.groupName)
             user.save(function (err) {
                 if (err) {
                     next(err)
