@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './pages/Home'
 import InputCredentials from './pages/InputCredentials'
+import CreateGroup from './pages/CreateGroup'
 
 const App = () => {
     return (
@@ -10,6 +11,9 @@ const App = () => {
             <Switch>
                 <Route path={['/signup', '/login']}>
                     <InputCredentials />
+                </Route>
+                <Route path='/group/create'>
+                    <CreateGroup />
                 </Route>
                 <Route>
                     <Home />
