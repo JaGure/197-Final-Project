@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
     username: { type: String },
     password: { type: String },
-    groups: { type: [String] },
+    groupNames: { type: [String] },
+    groupIDs: { type: [String] }
 })
 
 module.exports = {

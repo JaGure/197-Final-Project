@@ -9,7 +9,7 @@ const groupSchema = new mongoose.Schema({
     characters: { 
         type: Map, 
         of:  characterSchema}, // map of users to characters
-    DM: { type: String },    
+    DM: { type: String }, // Dungeon Master
 })
 
 module.exports = mongoose.model('Group', groupSchema)
