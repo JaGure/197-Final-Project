@@ -12,9 +12,6 @@ const App = () => {
                 <Route path={['/signup', '/login']}>
                     <InputCredentials />
                 </Route>
-                <Route path='/group/create'>
-                    <CreateGroup />
-                </Route>
                 <Route>
                     <Home />
                 </Route>

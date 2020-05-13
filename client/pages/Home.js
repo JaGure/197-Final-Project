@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import s from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
 import Header from '../components/Header'
-import CreateGroupButton from '../components/CreateGroupButton'
+import CreateGroupMenu from '../components/CreateGroupMenu'
+
+const BodyWrapper = s.div`
+    margin: 50px auto 0;
+`
 
 const Home = () => {
     const [currentUser, setCurrentUser] = useState('')
@@ -55,10 +60,14 @@ const Home = () => {
                 // if redirection takes a sec
                 <>
                     <Header />
-                    <div>
-                        {currentUser}
-                    </div>
-                    <CreateGroupButton />
+                    <BodyWrapper className='container-fluid'>
+                        <div className='row'>
+                            <div className='col'>
+                                {currentUser}
+                            </div>
+                        </div>
+                    </BodyWrapper>
+                    <CreateGroupMenu />
                 </> : null}
         </>
     )
