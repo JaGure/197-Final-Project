@@ -7,6 +7,7 @@ const Wrapper = s.div`
     position: fixed;
     top: 0;
     padding: 5px;
+    height: 50px;
     display: flex;
     flexflow: row nowrap;
 `
