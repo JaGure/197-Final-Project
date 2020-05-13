@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './pages/Home'
 import InputCredentials from './pages/InputCredentials'
-import CreateGroup from './pages/CreateGroup'
 
 const App = () => {
     return (
