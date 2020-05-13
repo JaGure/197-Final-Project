@@ -45,7 +45,7 @@ const Group = () => {
             setGroupID(resBody.id)
 
             // if a character has already been created before in this group
-            if (typeof group.characters[0]._id !== 'undefined') {
+            if (typeof group.characters[0] !== 'undefined' && typeof group.characters[0]._id !== 'undefined') {
                 setCharacterCreated(true)
             }
         }
