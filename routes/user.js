@@ -14,12 +14,19 @@ router.get('/', function (req, res, next) {
     }
 })
 
-router.get('/groups', function (req, res, next) {
+// middleware that checks if the user is logged in 
+router.use('/', function (req, res, next) {
     const username = req.session.username
 
     if (username == null) {
-        res.status(401).send('User needs to log in to get groups')
+        res.status(401).send('User needs to log in to achieve this functionality')
+    } else {
+        next()
     }
+})
+
+router.get('/groups', function (req, res, next) {
+    const username = req.session.username
 
     User.findOne({ username: username }, function(err, user) {
         if (err) {
