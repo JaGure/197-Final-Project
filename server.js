@@ -15,9 +15,8 @@ const app = express()
 
 // instantiate a mongoose connect call
 mongoose
-    .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/dnd', { useNewUrlParser: true, useUnifiedTopology: true }
+    .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/dnd', { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(err => console.log(err))
-)
 
 app.use(express.static(path.join(__dirname, './dist')))
 
