@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "prestart": "parcel build ./client/index.html",
-    "parcel:dev": "parcel ./client/index.html",
-    "build": "parcel build ./client/index.html && node server.js"
+    "parcel:dev": "parcel ./client/index.html"
   },
   "keywords": [],
   "author": "",
