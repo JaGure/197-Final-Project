@@ -16,7 +16,7 @@ const Home = () => {
     const [groups, setGroups] = useState([])
     const history = useHistory()
 
-    // called on first render
+    // called on when groups updates
     // checks to see if a user is currently logged in, if so, sets the current user and gets their groups
     // if no user is logged in, redirects to the sign up page
     useEffect(() => {
@@ -52,7 +52,7 @@ const Home = () => {
             }
         }
         checkIfUserLoggedIn()
-    }, [])
+    }, [groups])
 
     return (
         <>
