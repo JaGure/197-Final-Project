@@ -22,7 +22,7 @@ const Group = () => {
     const [characters, setCharacters] = useState([])
     const [DM, setDM] = useState('')
     const [characterCreated, setCharacterCreated] = useState(false)
-    const [showCharacterForm, setShowCharacterForm] = useState(false)
+    const [showCharacterForm, setShowCharacterForm] = useState(true)
     const [groupID, setGroupID] = useState('')
 
     // called on first render & when characterCreated is updated
@@ -48,7 +48,7 @@ const Group = () => {
 
             // if a character has already been created before in this group
             if (typeof group.characters[0] !== 'undefined' && typeof group.characters[0]._id !== 'undefined') {
-                setShowCharacterForm(true)
+                setShowCharacterForm(false)
             }
         }
 
@@ -64,7 +64,7 @@ const Group = () => {
             </div>
             <div className='row'>
                 <div className='col-md-5'>
-                    {!showCharacterForm ?
+                    {showCharacterForm ?
                         <>
                             <h3>Create New Character</h3>
                             <CreateCharacterForm setCharacterCreated={setCharacterCreated} groupID={groupID} />
