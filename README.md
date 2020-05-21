@@ -9,5 +9,4 @@ group, they have the ability to create a very basic DnD character using informat
 api: https://www.dnd5eapi.co. The api is used to check for the validity of user input when
 creating a character, and then provide extra information on valid character input.
 
-The bulk of the code is in the client and routes folders. The frontend is all done in client. Most of the
-server code is in routes. Notably, all of the database interaction is done in the files in this folder.
+The bulk of the code is in the client and routes folders. The frontend is all done in client. In client, many different components make calls to the backend. The CharacterFormItem component makes calls to the DnD api. Most of the server code is in routes. Notably, all of the database interaction is done in the files in this folder.
