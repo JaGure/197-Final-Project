@@ -1,6 +1,5 @@
 # 197-Final-Project
-Link: jakegure-cis197-final.herokuapp.com
-This may take a bit to load because heroku will put the app to sleep if no one has accessed it in a while.
+Link: jakegure-cis197-final.herokuapp.com. This may take a bit to load because heroku will put the app to sleep if no one has accessed it in a while.
 
 A virtual way to keep track of your DnD characters.
 
