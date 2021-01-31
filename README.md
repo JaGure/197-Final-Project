@@ -1,5 +1,5 @@
 # 197-Final-Project
-Link: jakegure-cis197-final.herokuapp.com. This may take a bit to load because heroku will put the app to sleep if no one has accessed it in a while.
+Link: jakegure-cis197-final.herokuapp.com. This may take a bit to load because heroku will put the app to sleep if no one has accessed it in a while. *This project is now deprecated! ☹️ The database plugin I used is no longer supported.*
 
 A virtual way to keep track of your DnD characters.
 
